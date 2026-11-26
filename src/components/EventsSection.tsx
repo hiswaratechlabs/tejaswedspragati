@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, Clock, Download, MapPin, Shirt, ExternalLink } from 'lucide-react';
+import { Calendar, Clock, Download, MapPin, ExternalLink } from 'lucide-react';
 import {
   CeremonyEvent,
   Language,
@@ -16,7 +16,6 @@ interface EventsSectionProps {
 
 export const EventsSection: React.FC<EventsSectionProps> = ({ language }) => {
   const [selectedDay, setSelectedDay] = useState<'all' | CeremonyEvent['id']>('all');
-  const [activeSwatch, setActiveSwatch] = useState<Record<string, string>>({});
 
   const copy = UI_COPY[language];
   const events = WEDDING_EVENTS;
@@ -97,8 +96,6 @@ export const EventsSection: React.FC<EventsSectionProps> = ({ language }) => {
           <AnimatePresence mode="popLayout">
             <div className="space-y-10">
               {visibleEvents.map((ev, index) => {
-                const selectedSwatch =
-                  activeSwatch[ev.id] || (isMr ? ev.swatches[0].nameMr : ev.swatches[0].nameEn);
                 const isSingle = visibleEvents.length === 1;
                 const isRightSide = !isSingle && index % 2 === 1;
 
@@ -216,42 +213,9 @@ export const EventsSection: React.FC<EventsSectionProps> = ({ language }) => {
                           </div>
                         </div>
 
-                        {/* Interactive Dress Code Swatch Palette */}
-                        <div className="mb-5">
-                          <div className="flex items-center justify-between gap-2 text-xs mb-2">
-                            <span className="inline-flex items-center gap-1.5 text-[#D9CEBA] font-medium">
-                              <Shirt className="w-3.5 h-3.5 text-[#ECCD86]" />
-                              {copy.attireLabel}:
-                            </span>
-                            <span className="text-[#ECCD86] font-semibold">{selectedSwatch}</span>
-                          </div>
-                          <div className="flex items-center gap-2.5">
-                            {ev.swatches.map((sw) => {
-                              const swName = isMr ? sw.nameMr : sw.nameEn;
-                              const active = selectedSwatch === swName;
-                              return (
-                                <button
-                                  key={sw.hex}
-                                  type="button"
-                                  onClick={() =>
-                                    setActiveSwatch((prev) => ({ ...prev, [ev.id]: swName }))
-                                  }
-                                  title={swName}
-                                  className={`w-7 h-7 rounded-full border-2 transition-transform cursor-pointer ${
-                                    active ? 'scale-115 border-[#FAF5EB] ring-2 ring-[#D4A853]' : 'border-[#D4A853]/40'
-                                  }`}
-                                  style={{ backgroundColor: sw.hex }}
-                                />
-                              );
-                            })}
-                            <span className="text-[11px] text-[#B8AD99] line-clamp-1 ml-1">
-                              {isMr ? ev.dressCodeMr : ev.dressCodeEn}
-                            </span>
-                          </div>
-                        </div>
                       </div>
 
-                      {/* Perforated Passbook Tear-Line + Action Footer */}
+                      {/* Perforated Tear-Line + Action Footer */}
                       <div className="relative flex flex-wrap items-center gap-2 pt-4 border-t border-dashed border-[#D4A853]/35">
                         <a
                           href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
