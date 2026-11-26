@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Volume2, VolumeX } from 'lucide-react';
 import { FAMILY_PROFILE, Language, UI_COPY } from '../data/weddingData';
+import { ragaEngine } from '../utils/weddingActions';
 import { GaneshaLineEmblem, MandalaHalo } from './SacredArt';
 
 interface PatrikaCurtainProps {
@@ -23,6 +24,11 @@ export const PatrikaCurtain: React.FC<PatrikaCurtainProps> = ({
 
   const handleOpen = (withAudio: boolean) => {
     if (isParting) return;
+    if (withAudio) {
+      // Trigger audio synchronously inside user click gesture so mobile/desktop browsers never block playback
+      ragaEngine.playBellChime();
+      ragaEngine.start();
+    }
     setIsParting(true);
     setTimeout(() => {
       onEnter(withAudio);

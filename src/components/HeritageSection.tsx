@@ -75,7 +75,7 @@ export const HeritageSection: React.FC<HeritageSectionProps> = ({
   return (
     <section
       id="heritage"
-      className="relative py-16 sm:py-24 bg-[#FAF5EB] text-[#132823] bg-silk-grain overflow-hidden"
+      className="relative pt-20 pb-16 sm:py-24 bg-[#FAF5EB] text-[#132823] bg-silk-grain overflow-hidden"
     >
       {/* Subtle Ambient Mandala Watermark */}
       <div className="absolute top-12 left-1/2 -translate-x-1/2 pointer-events-none opacity-[0.07]">
@@ -137,9 +137,9 @@ export const HeritageSection: React.FC<HeritageSectionProps> = ({
           <ScrollRoller position="top" title="॥ शुभमंगल पोथी ॥" />
 
           {/* Manuscript Body */}
-          <div className="mx-3 sm:mx-5 bg-gradient-to-b from-[#F5E9CE] via-[#F2E2BE] to-[#EEDBB1] border-x-2 border-[#9C7228]/70 shadow-[0_24px_65px_rgba(61,37,20,0.24)] px-4 sm:px-10 py-6 sm:py-8 relative">
+          <div className="mx-1.5 sm:mx-5 bg-gradient-to-b from-[#F5E9CE] via-[#F2E2BE] to-[#EEDBB1] border-x-2 border-[#9C7228]/70 shadow-[0_24px_65px_rgba(61,37,20,0.24)] px-2.5 sm:px-10 py-5 sm:py-8 relative">
             {/* Inner Dashed Manuscript Border */}
-            <div className="border-2 border-dashed border-[#9C7228]/45 rounded-xl p-4 sm:p-7 relative">
+            <div className="border-2 border-dashed border-[#9C7228]/45 rounded-xl p-3 sm:p-7 relative">
               {/* Corner Crimson Tilak Dots */}
               <span className="absolute -top-1.5 -left-1.5 w-3 h-3 rounded-full bg-[#8F1E3C] border border-[#ECCD86]" />
               <span className="absolute -top-1.5 -right-1.5 w-3 h-3 rounded-full bg-[#8F1E3C] border border-[#ECCD86]" />
@@ -195,20 +195,20 @@ export const HeritageSection: React.FC<HeritageSectionProps> = ({
                       transformOrigin: direction > 0 ? 'left center' : 'right center',
                       transformStyle: 'preserve-3d',
                     }}
-                    className="relative rounded-2xl bg-gradient-to-b from-[#FAF5EB] to-[#F3E7CC] border border-[#9C7228]/55 p-5 sm:p-7 shadow-[0_16px_38px_rgba(61,37,20,0.14)] cursor-grab active:cursor-grabbing"
+                    className="relative rounded-2xl bg-gradient-to-b from-[#FAF5EB] to-[#F3E7CC] border border-[#9C7228]/55 p-4 sm:p-7 shadow-[0_16px_38px_rgba(61,37,20,0.14)] cursor-grab active:cursor-grabbing"
                   >
                     {/* Header Row: Index Seal + Title + Brass-Rimmed Glyph */}
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full bg-[#8F1E3C] border-2 border-[#D4A853] text-[#FAF5EB] flex items-center justify-center font-mr-display text-lg shadow-md shrink-0">
+                    <div className="flex items-center justify-between gap-3 mb-4 sm:mb-5">
+                      <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#8F1E3C] border-2 border-[#D4A853] text-[#FAF5EB] flex items-center justify-center font-mr-display text-base sm:text-lg shadow-md shrink-0">
                           {MARATHI_DIGITS[activeIndex]}
                         </div>
-                        <div>
-                          <p className="text-[10px] font-caps tracking-[0.22em] uppercase text-[#8F1E3C] font-bold">
+                        <div className="min-w-0">
+                          <p className="text-[10px] font-caps tracking-[0.18em] sm:tracking-[0.22em] uppercase text-[#8F1E3C] font-bold truncate">
                             {isMr ? activeMotif.shortTagMr : activeMotif.shortTagEn}
                           </p>
                           <h3
-                            className={`text-2xl sm:text-3xl text-[#2C1A0E] ${
+                            className={`text-xl sm:text-3xl text-[#2C1A0E] leading-tight ${
                               isMr ? 'font-mr-display' : 'font-display font-bold'
                             }`}
                           >
@@ -217,13 +217,13 @@ export const HeritageSection: React.FC<HeritageSectionProps> = ({
                         </div>
                       </div>
 
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#071E1B] border-2 border-[#D4A853] p-2 shrink-0 self-start sm:self-center shadow-md">
+                      <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-[#071E1B] border-2 border-[#D4A853] p-1.5 sm:p-2 shrink-0 shadow-md">
                         <HeritageGlyph id={activeMotif.id} className="w-full h-full" />
                       </div>
                     </div>
 
                     {/* Tadpatra / Palm-Leaf Shloka Strip with Punched Binding Holes */}
-                    <div className="relative my-5 rounded-xl bg-gradient-to-r from-[#E6D0A1] via-[#EEDBB1] to-[#E6D0A1] border border-[#9C7228]/60 py-3.5 px-9 shadow-inner text-center">
+                    <div className="relative my-4 sm:my-5 rounded-xl bg-gradient-to-r from-[#E6D0A1] via-[#EEDBB1] to-[#E6D0A1] border border-[#9C7228]/60 py-3 px-7 sm:px-9 shadow-inner text-center">
                       <span
                         aria-hidden="true"
                         className="absolute left-3 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#3D2514]/80 border border-[#FAF5EB]/70 shadow-inner"
