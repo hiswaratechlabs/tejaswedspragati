@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, Clock, Download, MapPin, Shirt, ExternalLink, Sparkles } from 'lucide-react';
+import { Calendar, Clock, Download, MapPin, Shirt, ExternalLink } from 'lucide-react';
 import {
   CeremonyEvent,
   Language,
@@ -150,22 +150,11 @@ export const EventsSection: React.FC<EventsSectionProps> = ({ language }) => {
                       />
 
                       <div>
-                        {/* Day Stamp + Floating Ceremony Art */}
+                        {/* Ceremony Title + Floating Ceremony Art */}
                         <div className="flex items-start justify-between gap-4 mb-4">
                           <div>
-                            <span
-                              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-caps tracking-[0.18em] uppercase font-bold border"
-                              style={{
-                                backgroundColor: ev.tintBg,
-                                borderColor: `${ev.accentHex}77`,
-                                color: '#FAF5EB',
-                              }}
-                            >
-                              <Sparkles className="w-3 h-3 text-[#ECCD86]" />
-                              {isMr ? `दिवस ${ev.dayNumber}` : `Pass 0${ev.dayNumber}`}
-                            </span>
                             <h3
-                              className={`mt-3 text-2xl sm:text-3xl text-[#FAF5EB] ${
+                              className={`text-2xl sm:text-3xl text-[#FAF5EB] ${
                                 isMr ? 'font-mr-display' : 'font-display font-semibold'
                               }`}
                             >
