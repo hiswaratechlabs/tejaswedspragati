@@ -244,7 +244,7 @@ export const VenueSection: React.FC<VenueSectionProps> = ({ language }) => {
               </div>
               <div>
                 <p className="text-[10px] font-caps tracking-[0.22em] uppercase text-[#ECCD86]">
-                  {isMr ? 'प्रवास मार्गदर्शिका' : 'Royal Arrival Pass'}
+                  {isMr ? 'प्रवास मार्गदर्शिका' : 'Royal Arrival Guide'}
                 </p>
                 <h4
                   className={`text-lg sm:text-2xl font-semibold text-[#FAF5EB] ${

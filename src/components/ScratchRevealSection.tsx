@@ -298,19 +298,19 @@ export const ScratchRevealSection: React.FC<ScratchRevealSectionProps> = ({ lang
             <div className="text-center mb-6">
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#071E1B] text-[#ECCD86] text-[11px] font-caps tracking-widest uppercase shadow-sm">
                 <Sparkles className="w-3 h-3" />
-                {isMr ? 'डिजिटल निमंत्रण पास' : 'Official Keepsake Pass'}
+                {isMr ? 'डिजिटल निमंत्रण पत्रिका' : 'Official Keepsake Card'}
               </span>
               <h3
                 className={`mt-3 text-2xl sm:text-4xl text-[#071E1B] ${
                   isMr ? 'font-mr-display' : 'font-display font-semibold'
                 }`}
               >
-                {isMr ? 'आपली आठवणीची पत्रिका जतन करा' : 'Save & Download Your Keepsake Pass'}
+                {isMr ? 'आपली आठवणीची पत्रिका जतन करा' : 'Save & Download Your Keepsake Card'}
               </h3>
               <p className={`mt-2 text-xs sm:text-sm text-[#4D625B] max-w-lg mx-auto leading-relaxed ${isMr ? 'font-mr-body' : ''}`}>
                 {isMr
                   ? 'विवाह सोहळ्याची तारीख आपल्या कॅलेंडरमध्ये नोंदवा किंवा खास तयार केलेले सुवर्ण निमंत्रण कार्ड (PNG) मोबाइलवर जतन करा.'
-                  : 'Lock the auspicious Muhurat into your calendar or download your bespoke Emerald & Gold invitation pass.'}
+                  : 'Lock the auspicious Muhurat into your calendar or download your bespoke Emerald & Gold invitation card.'}
               </p>
             </div>
 
@@ -340,7 +340,7 @@ export const ScratchRevealSection: React.FC<ScratchRevealSectionProps> = ({ lang
                   </div>
                   <div className="text-left">
                     <p className="text-[10px] font-caps tracking-[0.2em] uppercase text-[#ECCD86]">
-                      {isMr ? 'शुभविवाह सोहळा' : 'Shubh Vivaah Pass'}
+                      {isMr ? 'शुभविवाह सोहळा' : 'Shubh Vivaah Invite'}
                     </p>
                     <p className={`text-sm font-bold text-[#FAF5EB] ${isMr ? 'font-mr-display' : 'font-display text-base'}`}>
                       {isMr ? profile.coupleMr : profile.coupleEn}
@@ -348,7 +348,7 @@ export const ScratchRevealSection: React.FC<ScratchRevealSectionProps> = ({ lang
                   </div>
                 </div>
                 <span className="px-2.5 py-1 rounded-full bg-[#8F1E3C]/85 border border-[#D4A853]/50 text-[10px] font-caps tracking-wider uppercase text-[#ECCD86]">
-                  {isMr ? 'निमंत्रित' : 'Guest Pass'}
+                  {isMr ? 'निमंत्रित' : 'Invited'}
                 </span>
               </div>
 
@@ -392,7 +392,7 @@ export const ScratchRevealSection: React.FC<ScratchRevealSectionProps> = ({ lang
                   {downloadedToast
                     ? isMr
                       ? 'निमंत्रण कार्ड डाउनलोड झाले! ✨'
-                      : 'Keepsake Pass Downloaded! ✨'
+                      : 'Keepsake Card Downloaded! ✨'
                     : copy.downloadPassBtn}
                 </span>
               </motion.button>

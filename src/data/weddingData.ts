@@ -599,7 +599,7 @@ export const UI_COPY = {
     scratchEyebrow: 'Royal Save-The-Date Envelope',
     scratchTitle: 'Unveil the Auspicious Muhurat',
     scratchSubtitle:
-      'Tap the golden wax-sealed envelope below to open your invitation letter — then save or download your keepsake pass.',
+      'Tap the golden wax-sealed envelope below to open your invitation letter — then save or download your keepsake card.',
     scratchHint: 'Tap seal to open envelope',
     scratchRevealBtn: 'Open Envelope',
     scratchResetBtn: 'Close Envelope',
@@ -613,7 +613,7 @@ export const UI_COPY = {
     minutes: 'Minutes',
     seconds: 'Seconds',
     eventsEyebrow: 'Three Days of Joy',
-    eventsTitle: 'The Wedding Passbook',
+    eventsTitle: 'The Wedding Itinerary',
     eventsSubtitle:
       'From emerald-hued Mehendi and marigold-drenched Haldi to the sacred 12:20 PM Muhurat.',
     allDays: 'All 3 Celebrations',
