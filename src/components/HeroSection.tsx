@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, Download, MapPin, Sparkles, ArrowRight, HeartHandshake, Heart, RotateCcw } from 'lucide-react';
+import { Calendar, Download, MapPin, Sparkles, ArrowRight, Heart, RotateCcw } from 'lucide-react';
 import {
   ChapterId,
   FAMILY_PROFILE,
@@ -297,61 +297,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 {profile.hashtag}
               </span>
               <span className="h-px w-12 sm:w-24 bg-gradient-to-l from-transparent to-[#D4A853]/65" />
-            </div>
-
-            {/* Dual Family Lineage Crest Cards Joined by Sacred Knot */}
-            <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-7 text-left">
-              {/* Center Sacred Knot Medallion (Desktop) */}
-              <motion.div
-                animate={{ rotate: [0, 6, -6, 0], scale: [1, 1.06, 1] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                className="hidden sm:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#071E1B] border-2 border-[#D4A853] items-center justify-center shadow-[0_0_25px_rgba(212,168,83,0.45)]"
-                aria-hidden="true"
-              >
-                <HeartHandshake className="w-5 h-5 text-[#ECCD86]" />
-              </motion.div>
-
-              {/* Groom Card */}
-              <motion.div
-                initial={{ opacity: 0, x: -18 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.65, delay: 0.2 }}
-                whileHover={{ y: -4 }}
-                className="relative rounded-2xl bg-gradient-to-br from-[#0D2B26]/95 to-[#071E1B]/95 border border-[#D4A853]/40 hover:border-[#ECCD86]/80 p-5 shadow-[0_14px_35px_rgba(0,0,0,0.38)] backdrop-blur-sm transition-colors"
-              >
-                <span className="absolute top-2.5 left-2.5 w-3 h-3 border-t border-l border-[#D4A853]/65 rounded-tl-sm" />
-                <span className="absolute bottom-2.5 right-2.5 w-3 h-3 border-b border-r border-[#D4A853]/65 rounded-br-sm" />
-
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#D4A853]/15 border border-[#D4A853]/40 text-[10px] font-caps tracking-[0.2em] uppercase text-[#ECCD86] mb-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#ECCD86]" />
-                  {isMr ? 'वर · साळुंखे परिवार' : 'The Groom'}
-                </span>
-                <p className={`text-xs sm:text-sm text-[#FAF5EB]/95 leading-relaxed ${isMr ? 'font-mr-body' : ''}`}>
-                  {isMr ? profile.groomLineMr : profile.groomLineEn}
-                </p>
-              </motion.div>
-
-              {/* Bride Card */}
-              <motion.div
-                initial={{ opacity: 0, x: 18 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.65, delay: 0.28 }}
-                whileHover={{ y: -4 }}
-                className="relative rounded-2xl bg-gradient-to-bl from-[#0D2B26]/95 to-[#071E1B]/95 border border-[#D4A853]/40 hover:border-[#ECCD86]/80 p-5 shadow-[0_14px_35px_rgba(0,0,0,0.38)] backdrop-blur-sm transition-colors sm:pl-7"
-              >
-                <span className="absolute top-2.5 right-2.5 w-3 h-3 border-t border-r border-[#D4A853]/65 rounded-tr-sm" />
-                <span className="absolute bottom-2.5 left-2.5 w-3 h-3 border-b border-l border-[#D4A853]/65 rounded-bl-sm" />
-
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#2E8B6E]/20 border border-[#75D1AC]/35 text-[10px] font-caps tracking-[0.2em] uppercase text-[#75D1AC] mb-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#75D1AC]" />
-                  {isMr ? 'वधू · जिवरख - देशमुख परिवार' : 'The Bride'}
-                </span>
-                <p className={`text-xs sm:text-sm text-[#FAF5EB]/95 leading-relaxed ${isMr ? 'font-mr-body' : ''}`}>
-                  {isMr ? profile.brideLineMr : profile.brideLineEn}
-                </p>
-              </motion.div>
             </div>
 
             {/* Host Family Blessing Ribbon */}
