@@ -116,7 +116,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section
       id="patrika"
-      className="relative overflow-hidden bg-gradient-to-b from-[#071E1B] via-[#0B2823] to-[#071E1B] pt-6 pb-16 sm:pb-24 bg-jali-pattern"
+      className="relative overflow-hidden bg-gradient-to-b from-[#071E1B] via-[#0B2823] to-[#071E1B] pt-16 sm:pt-14 pb-16 sm:pb-24 bg-jali-pattern"
     >
       {/* Background Mandala Glow */}
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 pointer-events-none opacity-25">
@@ -203,23 +203,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Floating Gold Muhurat Seal Badge */}
-              <div className="absolute -bottom-4 -right-3 sm:-right-7 rounded-2xl bg-[#FAF5EB] text-[#071E1B] px-3.5 py-2.5 shadow-[0_14px_34px_rgba(0,0,0,0.45)] border-2 border-[#D4A853] text-left">
+            {/* Gold Muhurat Seal Plaque (Cleanly Below Portrait) */}
+            <div className="mt-4 inline-flex items-center gap-3 rounded-2xl bg-[#FAF5EB] text-[#071E1B] px-5 py-2.5 shadow-[0_14px_34px_rgba(0,0,0,0.4)] border-2 border-[#D4A853]">
+              <div className="text-left">
                 <p className="text-[9px] font-caps tracking-[0.18em] uppercase text-[#8F1E3C] font-bold">
                   {isMr ? 'शुभ विवाह मुहूर्त' : 'Shubh Muhurat'}
                 </p>
                 <p className="font-display text-lg font-bold leading-tight text-[#071E1B]">
                   12 Dec 2026
                 </p>
-                <p className="text-[10px] font-medium text-[#4D625B]">
-                  {isMr ? 'दुपारी १२:२० वा.' : '12:20 PM IST'}
-                </p>
               </div>
+              <span className="h-7 w-px bg-[#D4A853]/60" />
+              <p className="text-xs font-semibold text-[#4D625B]">
+                {isMr ? 'दुपारी १२:२० वा.' : '12:20 PM IST'}
+              </p>
             </div>
 
             {/* Portrait Switcher Dots */}
-            <div className="flex items-center justify-center gap-2 mt-7">
+            <div className="flex items-center justify-center gap-2 mt-4">
               {HERO_PORTRAITS.map((item, idx) => (
                 <button
                   key={item.id}
