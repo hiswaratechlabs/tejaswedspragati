@@ -1,6 +1,9 @@
 import confetti from 'canvas-confetti';
 import { CeremonyEvent, FAMILY_PROFILE, Language } from '../data/weddingData';
 import weddingSongUrl from '../../song/Tadev Lagnam Sudinamt Deo I Pratik & Komal I Wedding Card Shoot I Utsav Photography I 2024.mp3';
+import ramayanSongUrl from '../../song/ramayan_song.mp3';
+
+const WEDDING_PLAYLIST = [weddingSongUrl, ramayanSongUrl];
 
 export const PORTRAIT_FALLBACK_DATA_URI =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 800'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23071E1B'/%3E%3Cstop offset='50%25' stop-color='%230D2B26'/%3E%3Cstop offset='100%25' stop-color='%23071E1B'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='600' height='800' fill='url(%23g)'/%3E%3Crect x='24' y='24' width='552' height='752' rx='24' fill='none' stroke='%23D4A853' stroke-opacity='0.45' stroke-width='2'/%3E%3Ccircle cx='300' cy='355' r='110' fill='none' stroke='%23D4A853' stroke-opacity='0.65' stroke-width='2' stroke-dasharray='6 6'/%3E%3Ccircle cx='300' cy='355' r='92' fill='%23071E1B' stroke='%23ECCD86' stroke-width='2'/%3E%3Ctext x='300' y='370' text-anchor='middle' font-family='Georgia, serif' font-size='56' font-style='italic' fill='%23ECCD86'%3ET %26 P%3C/text%3E%3Ctext x='300' y='520' text-anchor='middle' font-family='Georgia, serif' font-size='22' letter-spacing='4' fill='%23FAF5EB'%3E12 DECEMBER 2026%3C/text%3E%3Ctext x='300' y='558' text-anchor='middle' font-family='Georgia, serif' font-size='16' fill='%23D9CEBA'%3EAditya Lawns, Bhadgaon%3C/text%3E%3C/svg%3E";
@@ -236,19 +239,30 @@ export function downloadKeepsakeCard(language: Language): void {
 
 /**
  * Wedding Song & Bell Chime Engine.
- * Plays the attached MP3 song on loop and synthesizes gentle bell chimes for Akshata blessings.
+ * Plays the attached MP3 wedding playlist sequentially on loop and synthesizes gentle bell chimes.
  */
 class AmbientRagaEngine {
   private ctx: AudioContext | null = null;
   private audio: HTMLAudioElement | null = null;
+  private trackIndex = 0;
   private isPlaying = false;
 
   private getAudio(): HTMLAudioElement {
     if (!this.audio) {
-      this.audio = new Audio(weddingSongUrl);
-      this.audio.loop = true;
+      this.audio = new Audio(WEDDING_PLAYLIST[this.trackIndex]);
       this.audio.volume = 0.65;
       this.audio.preload = 'auto';
+      this.audio.addEventListener('ended', () => {
+        if (!this.isPlaying || !this.audio) return;
+        this.trackIndex = (this.trackIndex + 1) % WEDDING_PLAYLIST.length;
+        this.audio.src = WEDDING_PLAYLIST[this.trackIndex];
+        const nextPlay = this.audio.play();
+        if (nextPlay !== undefined) {
+          nextPlay.catch(() => {
+            this.isPlaying = false;
+          });
+        }
+      });
     }
     return this.audio;
   }
